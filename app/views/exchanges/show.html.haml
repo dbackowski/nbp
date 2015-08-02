@@ -1,0 +1,14 @@
+%table.table
+  %thead
+    %tr
+      %th Nazwa waluty
+      %th Kod waluty
+      %th Kurs kupna
+      %th Kurs sprzedaży
+  %tbody
+    - @exchange.currencies.each do |currency|
+      %tr
+        %td= currency.name
+        %td= currency_code currency
+        %td= number_to_currency(currency.buy_price)
+        %td= number_to_currency(currency.sell_price)

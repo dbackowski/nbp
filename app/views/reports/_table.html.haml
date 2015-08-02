@@ -1,0 +1,16 @@
+%table.table
+  %thead
+    %tr
+      %th Miesiąc
+      %th Średnia cena kupna
+      %th Średnia cena sprzedaży
+      %th Mediana ceny kupna
+      %th Mediana ceny sprzedaży
+  %tbody
+    - @report.each do |report|
+      %tr
+        %td= report.month
+        %td= report.avg_buy_price
+        %td= report.avg_sell_price
+        %td= report.median_buy_price
+        %td= report.median_sell_price

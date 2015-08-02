@@ -1,0 +1,22 @@
+%p.pull-right
+  = link_to 'Pobierz najnowszy kurs', load_latest_exchanges_path, class: 'btn btn-primary', id: 'load-latest'
+.clearfix
+
+- if @exchanges.present?
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Nazwa tabeli
+        %th Data notowania
+        %th Data publikacji
+    %tbody
+      - @exchanges.each do |exchange|
+        %tr.clickable{'data-url': exchange_path(exchange)}
+          %td= exchange.name
+          %td= exchange.publication_date
+          %td= exchange.quotation_date
+
+  %div.text-center
+    = paginate @exchanges
+- else
+  .alert.alert-success Brak danych.

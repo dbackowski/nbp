@@ -1,0 +1,3 @@
+currencies_updater_job:
+  cron: "30 6 * * *"
+  class: "CurrenciesUpdater"

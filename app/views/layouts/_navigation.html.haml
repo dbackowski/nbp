@@ -1,0 +1,26 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  %div.container
+    %div.navbar-header
+      %button.navbar-toggle.collapsed{ type: 'button', 'data-toggle': 'collapse', 'data-target': '#navbar',
+       'aria-expanded': false, 'aria-controls': 'navbar' }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+      = link_to 'Kursy NBP', '#', class: 'navbar-brand'
+    %div#navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li{class: active_class('exchanges')}
+          = link_to 'Tabele kursów',exchanges_path
+        %li{class: active_class('reports')}
+          = link_to 'Raporty', reports_path
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          = link_to "#{current_user.try(:email) || 'Niezalogowany'} <span class=\"caret\"></span>".html_safe, '#',class: "dropdown-toggle", 'data-toggle': 'dropdown',
+            role: 'button', 'aria-haspopup': true, 'aria-expanded': false
+          %ul.dropdown-menu
+            - if user_signed_in?
+              %li= link_to 'Edytuj konto', edit_user_registration_path
+              %li.divider{role: 'separator'}
+              %li= link_to 'Wyloguj się', destroy_user_session_path, :method=>'delete'
+            - else
+              %li= link_to 'Zaloguj się', new_user_session_path
+              %li= link_to 'Zarejestruj się', new_user_registration_path

@@ -1,0 +1,48 @@
+%p
+  #chart{'data-url': reports_path(code: params[:code], year: params[:year], format: :json)}
+
+:javascript
+  function lineChart(containerId, data) {
+    nv.addGraph(function() {
+      var width = 1180,
+          height = 500;
+
+      var chart = nv.models.lineChart();
+
+      chart.color(d3.scale.category10().range());
+      chart.noData('Brak danych do wykresu');
+
+      chart.tooltip.contentGenerator(function (obj) {
+        return '<h3>' + obj['series'][0]['key'] + '</h3>' +
+               '<p>' + obj['series'][0]['value'] + '</p>';
+      });
+
+      chart.xAxis
+          .axisLabel("miesiące")
+          .showMaxMin(false)
+          .tickFormat(d3.format('d'));
+
+      chart.yAxis
+          .axisLabel("PLN")
+          .showMaxMin(false)
+          .tickFormat(d3.format(',.0f'));
+
+      d3.select("#" + containerId).append('svg')
+          .datum(data)
+          .attr('width', width)
+          .attr('height', height)
+          .call(chart);
+
+      nv.utils.windowResize(chart.update);
+
+      return chart;
+    });
+  }
+
+  d3.json($('#chart').data('url'), function(error, data) {
+    if (error) {
+      $('#chart').html("<div class=\"alert alert-danger\">Wystąpił błąd podczas generowania wykresu.</div>");
+    } else {
+      lineChart("chart", data);
+    }
+  });
