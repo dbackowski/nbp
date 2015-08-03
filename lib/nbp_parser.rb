@@ -2,12 +2,6 @@ require 'nokogiri'
 require 'open-uri'
 
 class NbpParser
-  @@currency_keys = { nazwa_waluty: :name,
-                      przelicznik: :converter,
-                      kod_waluty: :code,
-                      kurs_kupna: :buy_price,
-                      kurs_sprzedazy: :sell_price }
-
   def initialize(file_name: 'lastC.xml')
     @data = { exchange: {}, currencies: [] }
     @file_name = file_name
