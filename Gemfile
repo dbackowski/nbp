@@ -46,9 +46,11 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-nvd3', '1.8.1'
 end
 
+
 group :development, :test do
   gem 'seed-fu'
   gem 'rspec-rails'
+  gem 'rspec-collection_matchers'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'quiet_assets'

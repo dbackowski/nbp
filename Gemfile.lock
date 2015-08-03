@@ -177,6 +177,8 @@ GEM
       redis (~> 3.0, >= 3.0.4)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rspec-collection_matchers (1.1.2)
+      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.3.2)
       rspec-support (~> 3.3.0)
     rspec-expectations (3.3.1)
@@ -272,6 +274,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.2.3)
   rails-assets-nvd3 (= 1.8.1)!
+  rspec-collection_matchers
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
@@ -282,6 +285,3 @@ DEPENDENCIES
   spring
   turbolinks
   uglifier (>= 1.3.0)
-
-BUNDLED WITH
-   1.10.6

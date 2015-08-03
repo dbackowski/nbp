@@ -1,11 +1,10 @@
 FactoryGirl.define do
   factory :currency do
-    name "MyString"
-converter 1
-code "MyString"
-buy_price 1.5
-sell_price 1.5
-exchange nil
+    name "dolar amerykański"
+    converter 1
+    code "USD"
+    buy_price 3.7037
+    sell_price 3.7785
+    association :exchange, :factory => :exchange
   end
-
 end
