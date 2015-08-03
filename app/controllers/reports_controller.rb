@@ -4,6 +4,8 @@ class ReportsController < ApplicationController
   before_action :load_codes
   before_action :report_types
 
+  add_breadcrumb 'Raporty', :reports_path
+
   def show
     @report = Report.where(code: @selected_code, year: @selected_year).order(month: :asc)
 
