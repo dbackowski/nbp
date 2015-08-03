@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :exchanges, only: [:index, :show] do
     collection do
-      get :load_latest
+      post :load_latest
     end
   end
   resource :reports, only: :show

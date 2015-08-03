@@ -8,3 +8,4 @@ $(document).on 'click', '#load-latest', (e) ->
   $.ajax
     url: this.href
     dataType: 'script'
+    method: 'POST'
