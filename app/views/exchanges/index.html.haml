@@ -13,8 +13,8 @@
       - @exchanges.each do |exchange|
         %tr.clickable{'data-url': exchange_path(exchange)}
           %td= exchange.name
-          %td= exchange.publication_date
           %td= exchange.quotation_date
+          %td= exchange.publication_date
 
   %div.text-center
     = paginate @exchanges
