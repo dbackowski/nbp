@@ -28,8 +28,7 @@ class CreateReports < ActiveRecord::Migration
   end
 
   def down
-    execute 'DROP VIEW reports'
-    execute 'DROP FUNCTION _final_median(NUMERIC[]) CASCADE'
+    execute 'DROP FUNCTION array_median(double precision[]) CASCADE'
   end
 end
 
