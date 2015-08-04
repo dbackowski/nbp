@@ -67,7 +67,7 @@ CREATE TABLE currencies (
     code character varying NOT NULL,
     buy_price double precision NOT NULL,
     sell_price double precision NOT NULL,
-    exchange_id integer,
+    exchange_id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );

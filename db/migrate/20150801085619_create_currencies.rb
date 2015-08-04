@@ -7,7 +7,7 @@ class CreateCurrencies < ActiveRecord::Migration
       t.float :buy_price, null: false
       t.float :sell_price, null: false
 
-      t.references :exchange, index: true, foreign_key: true
+      t.references :exchange, index: true, null: false, foreign_key: true
 
       t.timestamps null: false
     end
