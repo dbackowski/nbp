@@ -11,8 +11,9 @@
       .content
         .row
           .span12
-            %ol.breadcrumb
-              = render_breadcrumbs :tag => :li, :separator => ""
+            - if user_signed_in?
+              %ol.breadcrumb
+                = render_breadcrumbs :tag => :li, :separator => ""
 
             #messages
               = render 'layouts/messages'
