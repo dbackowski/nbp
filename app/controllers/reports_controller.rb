@@ -19,7 +19,7 @@ class ReportsController < ApplicationController
   private
 
   def load_years
-    @years = Report.select('DISTINCT year').map(&:year)
+    @years = Report.pluck('DISTINCT year')
     @selected_year = params[:year] || @years.max
   end
 
