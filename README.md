@@ -1,4 +1,4 @@
-# Kursy NBP
+# Kursy NBP [![Build Status](https://travis-ci.org/dbackowski/nbp.svg)](https://travis-ci.org/dbackowski/nbp)
 
 Testowy użytkownik tworzony podczas rake db:setup 
 
