@@ -14,9 +14,8 @@ class NbpParser
 
   private
 
-  # TODO: obejsc problem kwot z przecinkami (przy zapisie do bazy sa gubione cyfry po przecinku)
   def parse
-    doc = Nokogiri::HTML(open("http://www.nbp.pl/kursy/xml/#{@file_name}"))
+    doc = Nokogiri::XML(open("http://www.nbp.pl/kursy/xml/#{@file_name}"))
 
     @data[:exchange][:name] = doc.xpath('//tabela_kursow/numer_tabeli').text
     @data[:exchange][:quotation_date] = doc.xpath('//tabela_kursow/data_notowania').text
